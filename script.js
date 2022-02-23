@@ -19,38 +19,39 @@
     //=========
     function toStartGame() {
 
+       firstScore = document.querySelector('.player--active .current-score');
+        score = document.querySelector('.player--active .score');
+
         //Случайное число кубика
         let RandomNumber = randomNumber();
         ChachKubImage(RandomNumber);
 
 
-        summNumbersFromKub += RandomNumber; //Сумма из чисел полученных от кубика. Сгораемые балы
+        summNumbersFromKub = RandomNumber + summNumbersFromKub; //Сумма из чисел полученных от кубика. Сгораемые балы
         firstScore.textContent = summNumbersFromKub; //Полученную сумму отрисовываем на странице
-            
-
+               
         //Если выпала Единица (1)
-        if(RandomNumber == 1){
-            toBirnScore();
-            changePlayer();
-        }    
+            if(RandomNumber == 1){
+                toBirnScore();
+                changePlayer();
+            } 
     }
+
 
 
     //Нажимаем кнопку "Оставить"
     //Сохраняем и плюсуем к несгораемым очкам
     function saveData(){
-        summNotBirnScore+=summNumbersFromKub //Суммируется к несгораемому Счёту игрока
+        summNotBirnScore=summNumbersFromKub + summNotBirnScore; //Суммируется к несгораемому Счёту игрока
         score.textContent = summNotBirnScore 
+
+
         
         changePlayer();
         toBirnScore();
     }
     
 
-    
-    
-    
-    
     function toBirnScore(){
         summNumbersFromKub=0;
         firstScore.textContent = 0;

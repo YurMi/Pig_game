@@ -49,13 +49,13 @@ function saveData(){
     if(player_1.classList.contains('player--active')){
         currentScore_1 += summNumbersFromKub;
         totalScorePlayer_1.textContent = currentScore_1;
-        if(currentScore_1 >= 100){
+        if(currentScore_1 >= 20){
             winner(player_1)
         }
     } else {
         currentScore_2 += summNumbersFromKub;
         totalScorePlayer_2.textContent = currentScore_2;
-        if(currentScore_2 >= 100){
+        if(currentScore_2 >= 20){
             winner(player_2);
         }
     }
@@ -76,7 +76,6 @@ function changePlayer() {
     players.forEach(element => {
         element.classList.toggle('player--active')
     });
-    
 }
 //when sombody won the game
 function winner(player) {
@@ -116,7 +115,23 @@ function ChachKubImage(RandomNumber){
 
 //Перезапуск игры 
 function resetGame(){
-    location.reload();
+    // location.reload();
+    summNumbersFromKub=0;
+    firstScore.textContent = 0;
+
+    summNumbersFromKub = 0;
+    currentScore_1 = 0;
+    currentScore_2 = 0;
+    
+    totalScorePlayer_1.textContent = 0;
+    totalScorePlayer_2.textContent = 0;
+
+    dropBtn.removeAttribute("disabled", "")
+    leaveBtn.removeAttribute("disabled", "")
+    
+    players.forEach(element => {
+        element.classList.remove('player--winner')
+    });
 }  
 
 

@@ -14,7 +14,7 @@ const totalScorePlayer_1 = document.getElementById('score--0');
 const player_2 = document.querySelector('.player--1');
 const totalScorePlayer_2 = document.getElementById('score--1');
 
-
+kubSide.classList.add('hidden'); //Изначально прячем кубик
 
 
 //=========
@@ -22,6 +22,7 @@ const totalScorePlayer_2 = document.getElementById('score--1');
 let summNumbersFromKub = Number();
 //=========
 function toStartGame() {
+    kubSide.classList.remove('hidden'); //Возвращаем кубик 
     firstScore = document.querySelector('.player--active .current-score');
     score = document.querySelector('.player--active .score');
 
@@ -79,6 +80,7 @@ function changePlayer() {
 }
 //when sombody won the game
 function winner(player) {
+    kubSide.classList.add('hidden'); //Прячем кубик
     player.classList.add('player--winner')
     dropBtn.setAttribute("disabled", "")
     leaveBtn.setAttribute("disabled", "")

@@ -49,17 +49,13 @@ function saveData(){
         currentScore_1 += summNumbersFromKub;
         totalScorePlayer_1.textContent = currentScore_1;
         if(currentScore_1 >= 100){
-            player_1.classList.add('player--winner')
-            dropBtn.setAttribute("disabled", "")
-            leaveBtn.setAttribute("disabled", "")
+            winner(player_1)
         }
     } else {
         currentScore_2 += summNumbersFromKub;
         totalScorePlayer_2.textContent = currentScore_2;
         if(currentScore_2 >= 100){
-            player_2.classList.add('player--winner')
-            dropBtn.setAttribute("disabled", "")
-            leaveBtn.setAttribute("disabled", "")
+            winner(player_2);
         }
     }
 
@@ -81,6 +77,12 @@ function changePlayer() {
     });
     
 }
+//when sombody won the game
+function winner(player) {
+    player.classList.add('player--winner')
+    dropBtn.setAttribute("disabled", "")
+    leaveBtn.setAttribute("disabled", "")
+}
 
 //Random number 1-6
 function randomNumber() {
@@ -91,26 +93,32 @@ function ChachKubImage(RandomNumber){
     
     if(RandomNumber == 1){
         kubSide.src = './dice1.png';
+        return;
     } else if ( RandomNumber == 2){
         kubSide.src = './dice2.png';
+        return;
     } else if ( RandomNumber == 3){
         kubSide.src = './dice3.png';
+        return;
     } else if ( RandomNumber == 4){
         kubSide.src = './dice4.png';
+        return;
     } else if ( RandomNumber == 5){
         kubSide.src = './dice5.png';
+        return;
     } else if ( RandomNumber == 6){
         kubSide.src = './dice6.png';
+        return;
     }
 }
 
 //Перезапуск игры 
 function resetGame(){
     location.reload();
-}   
+}  
+
+
 newGameButton.addEventListener('click', resetGame)
-
-
 dropBtn.addEventListener('click', toStartGame);
 leaveBtn.addEventListener('click', saveData)
 

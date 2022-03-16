@@ -132,6 +132,10 @@ function resetGame(){
     players.forEach(element => {
         element.classList.remove('player--winner')
     });
+    players.forEach(element => {
+        element.classList.remove('player--active')
+    });
+    player_1.classList.add('player--active')
 }  
 
 
